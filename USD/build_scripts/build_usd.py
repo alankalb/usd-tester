@@ -1448,12 +1448,12 @@ def InstallUSD(context, force, buildArgs):
             extraArgs.append('-DPXR_BUILD_IMAGING=OFF')
 
         if context.buildUsdImaging:
-            extraArgs.append('-DPXR_BUILD_USD_IMAGING=OFF')
+            extraArgs.append('-DPXR_BUILD_USD_IMAGING=ON')
         else:
             extraArgs.append('-DPXR_BUILD_USD_IMAGING=OFF')
 
         if context.buildUsdview:
-            extraArgs.append('-DPXR_BUILD_USDVIEW=OFF')
+            extraArgs.append('-DPXR_BUILD_USDVIEW=ON')
         else:
             extraArgs.append('-DPXR_BUILD_USDVIEW=OFF')
 
@@ -1836,10 +1836,12 @@ class InstallContext:
         self.enableOpenVDB = self.buildImaging and args.enable_openvdb
 
         # - USD Imaging
-        self.buildUsdImaging = false
+        self.buildUsdImaging = (args.build_imaging == USD_IMAGING)
 
         # - usdview
-        self.buildUsdview = false
+        self.buildUsdview = (self.buildUsdImaging and 
+                             self.buildPython and 
+                             args.build_usdview)
 
         # - Imaging plugins
         self.buildEmbree = self.buildImaging and args.build_embree
