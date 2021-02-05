@@ -368,8 +368,8 @@ def RunCMake(context, force, extraArgs = None):
 
     with CurrentWorkingDirectory(buildDir):
         Run('cmake '
-            '-DCMAKE_C_FLAGS=fPIC '
-            '-DCMAKE_CXX_FLAGS=-fPIC ''
+            '-DCMAKE_C_FLAGS="fPIC" '
+            '-DCMAKE_CXX_FLAGS="fPIC" '
             '-DCMAKE_INSTALL_PREFIX="{instDir}" '
             '-DCMAKE_PREFIX_PATH="{depsInstDir}" '
             '-DCMAKE_BUILD_TYPE={config} '
