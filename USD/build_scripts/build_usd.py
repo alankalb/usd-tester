@@ -376,6 +376,7 @@ def RunCMake(context, force, extraArgs = None):
             '{toolset} '
             '{extraArgs} '
             '"{srcDir}"'
+            PXR_BUILD_USD_IMAGING=FALSE
             .format(instDir=instDir,
                     depsInstDir=context.instDir,
                     config=config,
@@ -1448,12 +1449,12 @@ def InstallUSD(context, force, buildArgs):
             extraArgs.append('-DPXR_BUILD_IMAGING=OFF')
 
         if context.buildUsdImaging:
-            extraArgs.append('-DPXR_BUILD_USD_IMAGING=ON')
+            extraArgs.append('-DPXR_BUILD_USD_IMAGING=OFF')
         else:
             extraArgs.append('-DPXR_BUILD_USD_IMAGING=OFF')
 
         if context.buildUsdview:
-            extraArgs.append('-DPXR_BUILD_USDVIEW=ON')
+            extraArgs.append('-DPXR_BUILD_USDVIEW=OFF')
         else:
             extraArgs.append('-DPXR_BUILD_USDVIEW=OFF')
 
