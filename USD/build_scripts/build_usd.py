@@ -376,7 +376,6 @@ def RunCMake(context, force, extraArgs = None):
             '{toolset} '
             '{extraArgs} '
             '"{srcDir}"'
-            PXR_BUILD_USD_IMAGING=FALSE
             .format(instDir=instDir,
                     depsInstDir=context.instDir,
                     config=config,
