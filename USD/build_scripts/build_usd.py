@@ -1836,12 +1836,10 @@ class InstallContext:
         self.enableOpenVDB = self.buildImaging and args.enable_openvdb
 
         # - USD Imaging
-        self.buildUsdImaging = (args.build_imaging == USD_IMAGING)
+        self.buildUsdImaging = false
 
         # - usdview
-        self.buildUsdview = (self.buildUsdImaging and 
-                             self.buildPython and 
-                             args.build_usdview)
+        self.buildUsdview = false
 
         # - Imaging plugins
         self.buildEmbree = self.buildImaging and args.build_embree
